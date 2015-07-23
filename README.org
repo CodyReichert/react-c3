@@ -1,0 +1,60 @@
+#+TITLE: React-C3
+#+AUTHOR: Cody Reichert
+#+EMAIL: codyreichert@gmail.com
+
+React-C3 is a React.js component for building C3.js graphs. It's a
+small file and has a simple interface.
+
+Currently, only a small subset of the C3.js API is supported, but it's
+enough to build several types of graphs by simply passing a couple of
+props and utilizing the React Component lifecycle methods to render
+and update c3.
+
+React-C3 uses some ES6 features, so be sure to precompile with Babel.
+
+* Usage
+
+  =npm install react-c3=
+
+  The component takes three required props:
+  + =data= A list of data points for the c3 graph. Ex:
+    #+BEGIN_SRC js
+      columns: [
+          ['data1', 75],
+          ['data2', 42]
+      ]
+    #+END_SRC
+  + =element= An HTML Id for the rendered graph. Ex: =#mygraph=
+  + =type= The type of graph to generate. Ex: =donut=, =pie=, =guage=
+
+
+* Example
+
+  #+BEGIN_SRC js
+    import React from 'react';
+    import Chart from 'react-c3';
+
+    let App = React.createClass({
+
+        _chartData: function() {
+            let chartData =  [
+                    ['data1', 75],
+                    ['data2', 42]
+            ];
+            return chartData;
+        },
+
+        render: function() {
+            return (
+                <div>
+                    <Chart data={this._chartData} />
+                </div>
+            );
+        }
+
+    });
+  #+END_SRC
+
+
+* License
+  MIT
