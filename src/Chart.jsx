@@ -20,7 +20,14 @@ let ChartComponent = React.createClass({
     chart: null,
 
     shouldComponentUpdate: function(nextProps) {
-        return this.props !== nextProps;
+        if(this.props.data.columns.length
+            !== nextProps.data.columns.length) { // shallow check
+            return true;
+        } else if(JSON.stringify(this.props.data.columns)
+                !== JSON.stringify(nextProps.data.columns)) { // deeper check
+            return  true;
+        }
+        return false;
     },
 
     componentDidMount: function() {
@@ -31,14 +38,13 @@ let ChartComponent = React.createClass({
         );
     },
 
-    /**
-     * TODO: I think there is still a re-render here, even if the data
-     * doesn't chage which can be optimized - not a big deal right
-     * now.
-     */
     componentDidUpdate: function(prevProps) {
         if(prevProps.data.columns !== this.props.data.columns) {
-            this._updateChart(this.props.data.columns);
+            this._generateChart(
+                this.props.data.columns,
+                this.props.type,
+                this.props.element
+            );
         }
     },
 
@@ -53,13 +59,6 @@ let ChartComponent = React.createClass({
                 columns: columns,
                 type: type
             }
-        });
-    },
-
-    _updateChart: function(columns) {
-        this.chart.unload();
-        this.chart.load({
-            columns: columns
         });
     },
 
