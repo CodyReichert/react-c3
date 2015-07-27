@@ -14,8 +14,6 @@ React-C3 uses some ES6 features, so be sure to precompile with Babel.
 
 * Usage
 
-  =npm install react-c3=
-
   The component takes three required props:
   + =data= A list of data points for the c3 graph. Ex:
     #+BEGIN_SRC js
