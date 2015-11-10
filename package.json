@@ -2,7 +2,10 @@
   "name": "react-c3",
   "version": "0.0.1",
   "description": "A React.js Component for creating c3.js graphs",
-  "main": "src/main.js",
+  "main": "lib/Chart.js",
+  "scripts": {
+    "build" : "babel src --out-dir lib"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/CodyReichert/react-c3.git"
@@ -23,6 +26,7 @@
     "babel-core": "^6.1.2",
     "babel-loader": "^6.1.0",
     "babel-preset-es2015": "^6.1.2",
+    "babel-preset-react": "^6.1.2",
     "babel-preset-stage-0": "^6.1.2",
     "react": "^0.14.2",
     "webpack": "^1.12.3"

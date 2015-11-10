@@ -6,9 +6,7 @@
 import c3    from 'c3';
 import React from 'react';
 
-
-let ChartComponent = React.createClass({
-
+const ChartComponent = React.createClass({
     displayName: 'React-C3-Chart',
 
     propTypes: {
