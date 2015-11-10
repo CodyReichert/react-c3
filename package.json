@@ -17,7 +17,7 @@
     "react": ">=0.13"
   },
   "dependencies": {
-    "c3": "^0.4.10"
+    "c3": "git+https://github.com/masayuki0812/c3.git"
   },
   "devDependencies": {
     "babel-core": "^6.1.2",
