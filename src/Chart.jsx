@@ -12,7 +12,8 @@ const ChartComponent = React.createClass({
     propTypes: {
         data: React.PropTypes.object.isRequired,
         element: React.PropTypes.string.isRequired,
-        type: React.PropTypes.string.isRequired
+        type: React.PropTypes.string.isRequired,
+        options: React.PropTypes.object.isRequired
     },
 
     chart: null,
@@ -32,7 +33,8 @@ const ChartComponent = React.createClass({
         this._generateChart(
             this.props.data.columns,
             this.props.type,
-            this.props.element
+            this.props.element,
+            this.props.options
         );
     },
 
@@ -41,7 +43,8 @@ const ChartComponent = React.createClass({
             this._generateChart(
                 this.props.data.columns,
                 this.props.type,
-                this.props.element
+                this.props.element,
+                this.props.options
             );
         }
     },
@@ -50,14 +53,15 @@ const ChartComponent = React.createClass({
         this._destroyChart();
     },
 
-    _generateChart: function(columns, type, element) {
-        this.chart = c3.generate({
-            bindto: `#${element}`,
-            data: {
-                columns: columns,
-                type: type
-            }
-        });
+    _generateChart: function(columns, type, element, options) {
+      let build = Object.assign({}, {
+        bindto: '#' + element,
+        data: {
+          columns: columns,
+          type: type
+        }
+      }, options);
+      this.chart = c3.generate(build);
     },
 
     _destroyChart: function() {
