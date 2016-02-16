@@ -8,6 +8,10 @@ enough to build several types of graphs by simply passing a couple of
 props and utilizing the React Component lifecycle methods to render
 and update c3.
 
+**Contributing**: This library is useful, but there are couple of [open issues](https://github.com/CodyReichert/react-c3/issues) 
+that would make this very useful. If you're looking for a place to contribute,
+check out those and feel free to submit a PR!
+
 ## Usage
 
 The component takes three required props:
